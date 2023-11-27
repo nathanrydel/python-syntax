@@ -1,16 +1,19 @@
 """ words printing for python syntax exercise """
 
-words = ["hello", "hey", "goodbye", "eagle", "E", "yo", "yes"]
-
-
-
-def print_upper_words(words):
-    """print upper case strings if str starts with e (upper or lowercase)
+def print_upper_words(words, must_start_with):
+    """print upper case strings
+    if str starts with letter in set (upper or lowercase)
     input a list of strings. no return"""
 
     for word in words:
         word = word.upper()
-        if word.startswith('E'):
-            print(word)
 
-print_upper_words(words)
+        for letter in must_start_with:
+            if word.startswith(letter.upper()):
+                print(word)
+                break
+
+words = ["hello", "hey", "goodbye", "eagle", "E", "yo", "yes"]
+must_start_with = {"h", "y"}
+
+print_upper_words(words, must_start_with)
